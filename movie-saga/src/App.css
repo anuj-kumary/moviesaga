@@ -1,0 +1,13 @@
+body{
+  width: 100vw;
+}
+.navigation{
+  margin: 0;
+}
+.card{
+  height: 30rem;
+}
+.chips{
+  display: flex;
+  justify-content: center;
+}
