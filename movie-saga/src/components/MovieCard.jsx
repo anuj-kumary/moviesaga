@@ -17,7 +17,7 @@ export default function MovieCard({ search }) {
                 />
               </div>
               <header className="card__heading">{movies.title}</header>
-              <p className="card__place">{movies.popularity}</p>
+              <p className="card__place">{movies.vote_average}</p>
               <p className="card__desc">
                {movies.overview}
               </p>
