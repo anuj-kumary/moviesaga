@@ -1,12 +1,20 @@
 import React from 'react'
 
-export default function Chip() {
+export default function Chip(genres) {
   return (
     <>
     <div className="chips">
-    <button className='btn btn--outlined '>Action</button>
-    <button className='btn btn--outlined '>Drama</button>
-    <button className='btn btn--outlined '>Romantic</button>
+    {
+      genres.map((movie)=>{
+        return(
+          <>
+          <button className='btn btn--outlined '>{movie.name}</button>
+          </>
+        )
+      })
+    
+    }
+    
     </div>
     
     </>

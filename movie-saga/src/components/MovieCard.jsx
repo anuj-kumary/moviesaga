@@ -1,20 +1,30 @@
 import React from "react";
 
-export default function MovieCard() {
+export default function MovieCard({ search }) {
   return (
     <>
-      <div className="card">
-        <div className="card__img">
-          <span className="card--badge">Premium</span>
-          <img src="https://cdn.theculturetrip.com/wp-content/uploads/2015/11/16663771787_b69fecf577_h.jpg" alt="Gate Of India" />
-        </div>
-        <header className="card__heading">MovieName</header>
-        <p className="card__place">Rating</p>
-        <p className="card__desc">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta quod aperiam nihil dolor quidem fugiat voluptates, earum asperiores adipisci exercitationem hic in repellendus voluptatum tempore expedita aut similique numquam quam?
-        </p>
-       <button className="btn">Add To Watchlist</button>
-      </div>
+      {search.map((movies) => {
+        const posterImg =`https://image.tmdb.org/t/p/w200/${movies.poster_path}` 
+        return (
+          <>
+            <div className="card">
+              <div className="card__img">
+                <span className="card--badge">Premium</span>
+                <img
+                  src={posterImg}
+                  alt="Gate Of India"
+                />
+              </div>
+              <header className="card__heading">{movies.title}</header>
+              <p className="card__place">{movies.popularity}</p>
+              <p className="card__desc">
+               {movies.overview}
+              </p>
+              <button className="btn">Add To Watchlist</button>
+            </div>
+          </>
+        );
+      })}
     </>
   );
 }
