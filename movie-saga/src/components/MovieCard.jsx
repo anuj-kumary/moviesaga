@@ -3,6 +3,7 @@ import React from "react";
 export default function MovieCard({ search }) {
   return (
     <>
+    <div className="movieCard">
       {search.map((movies) => {
         const posterImg =`https://image.tmdb.org/t/p/w200/${movies.poster_path}` 
         return (
@@ -25,6 +26,7 @@ export default function MovieCard({ search }) {
           </>
         );
       })}
+      </div>
     </>
   );
 }

@@ -5,9 +5,14 @@ body{
   margin: 0;
 }
 .card{
-  height: 30rem;
+  height: 40rem;
 }
 .chips{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+.movieCard{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }

@@ -1,6 +1,7 @@
-import React from 'react'
 
-export default function Chip(genres) {
+
+export default function Chip({genres , getMovieByGenres}) {
+
   return (
     <>
     <div className="chips">
@@ -8,7 +9,8 @@ export default function Chip(genres) {
       genres.map((movie)=>{
         return(
           <>
-          <button className='btn btn--outlined '>{movie.name}</button>
+          <button onClick={()=> getMovieByGenres(movie.name)} className='btn btn--outlined '>{movie.name}</button>
+         
           </>
         )
       })

@@ -3,7 +3,7 @@ import Nav from "./components/Nav";
 import axios from "axios"
 import "./App.css"
 import Chip from "./components/Chip";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function App() {
@@ -17,16 +17,22 @@ function App() {
     setSearch(fetchMovie.data.results)
   }
 
-  const getGenre = async() => {
-    const fetchGenre = await axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=f2121ae398da17162f25974795b0c9db") 
-    setGenres(fetchGenre.data.genres)
+  const getMovieByGenres = async(movieName) => {
+    const fetchGenre = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=f2121ae398da17162f25974795b0c9db&genre=&${movieName.toLowerCase()}`)
+    setSearch(fetchGenre.data.results)
   }
 
+  useEffect(() =>{
+     axios.get("https://api.themoviedb.org/3/genre/movie/list?api_key=f2121ae398da17162f25974795b0c9db")
+      .then((response) => {
+        setGenres(response.data.genres)
+      })  
+  },[])
 
   return (
     <div className="App">
     <Nav getMovie={getMovie} />
-    <Chip genres={genres} />
+    <Chip genres={genres} getMovieByGenres={getMovieByGenres} />
     <MovieCard search={search} />
     </div>
   );
